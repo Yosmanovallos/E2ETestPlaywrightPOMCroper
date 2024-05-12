@@ -2,6 +2,7 @@
 const { test, expect } = require('@playwright/test')
 const qaTestData = require('../data/qa.json');
 const prodTestData = require('../data/prod.json');
+const { HeaderLinksPage } = require("../pages/headerslinkspage");
 // create class
 exports.HomePageCroper = class HomePageCroper {
 
@@ -15,16 +16,6 @@ exports.HomePageCroper = class HomePageCroper {
         // Elements
         this.specialOffersLink = page.getByRole('link', { name: 'Ofertas especiales para tu' });
         this.popover = page.locator('#cp-popover-0');
-        this.categoriesButton = page.getByRole('button', { name: 'Categorías' });
-        this.offersLink = page.getByRole('link', { name: 'Ofertas', exact: true });
-        this.storesLink = page.getByRole('link', { name: 'Tiendas', exact: true });
-        this.insurancesLink = page.getByRole('link', { name: 'Seguros', exact: true });
-        this.creditsButton = page.getByRole('button', { name: 'Créditos' });
-        this.productListsLink = page.getByRole('link', { name: 'Listas de productos' });
-        this.techPackagesLink = page.getByRole('link', { name: 'Paquetes tecnológicos' });
-        this.sellLink = page.getByRole('link', { name: 'Vender' });
-        this.managementLink = page.getByRole('link', { name: 'Gestión', exact: true });
-        this.newsMenuItemLink = page.getByRole('menuitem', { name: 'Noticias' }).getByRole('link');
         this.cartLink = page.getByRole('link', { name: 'Carrito' });
         this.registerBannerLink = page.getByRole('banner').getByRole('link', { name: 'Registrarse' });
         this.loginBannerLink = page.getByRole('banner').getByRole('link', { name: 'Iniciar sesión' });
@@ -48,6 +39,7 @@ exports.HomePageCroper = class HomePageCroper {
         this.supportLink = page.getByRole('link', { name: 'Soporte' });
         this.searchButton = page.getByRole('button', { name: 'Busca lo que necesitas' });
         this.testData = process.env.ENV === 'qa' ? qaTestData.qaTestData : prodTestData.prodTestData;
+        this.headersLinksPage = new HeaderLinksPage(page);
     }
 
     async goto(){
@@ -58,16 +50,16 @@ exports.HomePageCroper = class HomePageCroper {
     async verifyElementsVisible() {
         await expect(this.specialOffersLink).toBeVisible();
         await expect(this.popover).toBeVisible();
-        await expect(this.categoriesButton).toBeVisible();
-        await expect(this.offersLink).toBeVisible();
-        await expect(this.storesLink).toBeVisible();
-        await expect(this.insurancesLink).toBeVisible();
-        await expect(this.creditsButton).toBeVisible();
-        await expect(this.productListsLink).toBeVisible();
-        await expect(this.techPackagesLink).toBeVisible();
-        await expect(this.sellLink).toBeVisible();
-        await expect(this.managementLink).toBeVisible();
-        await expect(this.newsMenuItemLink).toBeVisible();
+        await expect(this.headersLinksPage.categoriesButton).toBeVisible();
+        await expect(this.headersLinksPage.offersLink).toBeVisible();
+        await expect(this.headersLinksPage.storesLink).toBeVisible();
+        await expect(this.headersLinksPage.insurancesLink).toBeVisible();
+        await expect(this.headersLinksPage.creditsButton).toBeVisible();
+        await expect(this.headersLinksPage.productListsLink).toBeVisible();
+        await expect(this.headersLinksPage.techPackagesLink).toBeVisible();
+        await expect(this.headersLinksPage.sellLink).toBeVisible();
+        await expect(this.headersLinksPage.managementLink).toBeVisible();
+        await expect(this.headersLinksPage.newsMenuItemLink).toBeVisible();
         await expect(this.cartLink).toBeVisible();
         await expect(this.registerBannerLink).toBeVisible();
         await expect(this.loginBannerLink).toBeVisible();
