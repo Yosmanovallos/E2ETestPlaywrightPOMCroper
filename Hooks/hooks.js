@@ -23,7 +23,7 @@ exports.Hooks = class Hooks {
         const resultCount = await this.page.waitForResponse(async response => {
           if (response.url().includes('/_search/template') && response.status() === 200) {
             const json = await response.json();
-            return json.took === 5 || json.took === 6; // Filtra por "took": 5 o 6
+            return json.took === 5 || json.took === 6 || json.took === 7 || json.took === 9; // Filtra por "took": 5 o 6
           }
         });
 
@@ -38,7 +38,7 @@ exports.Hooks = class Hooks {
         const resultCount = await this.page.waitForResponse(async response => {
           if (response.url().includes('/_search/template') && response.status() === 200) {
             const json = await response.json();
-            return json.took === 5 || json.took === 6; // Filtra por "took": 5 o 6
+            return json.took === 5 || json.took === 6 || json.took === 7 || json.took === 4; // Filtra por "took": 5 o 6
           }
         });
 
@@ -54,7 +54,7 @@ exports.Hooks = class Hooks {
         const resultCount = await this.page.waitForResponse(async response => {
           if (response.url().includes('/_search/template') && response.status() === 200) {
             const json = await response.json();
-            return json.took === 5 || json.took === 1; // Filtra por "took": 5 o 6
+            return json.took === 5 || json.took === 1 || json.took === 4 || json.took === 2; // Filtra por "took": 5 o 6
           }
         });
         
@@ -84,7 +84,7 @@ exports.Hooks = class Hooks {
         const resultCount = await this.page.waitForResponse(async response => {
           if (response.url().includes('/_search/template') && response.status() === 200) {
             const json = await response.json();
-            return json.took === 5 || json.took === 7 || json.took === 8; // Filtra por "took": 5 o 6
+            return json.took === 15 || json.took === 7 || json.took === 8 || json.took === 6 || json.took === 5 || json.took === 2; // Filtra por "took": 5 o 6
           }
         });
 

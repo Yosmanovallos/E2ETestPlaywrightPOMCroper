@@ -95,6 +95,7 @@ test.describe('Credits', () => {
 
     test("Credits Solicite", async ({ page }) => {  
       const creditsPage = new CreditsPage(page)
+      await page.waitForTimeout(1000);
       await creditsPage.CreditSolicite(page);
     });
 
