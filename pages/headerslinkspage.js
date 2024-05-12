@@ -23,4 +23,48 @@ this.newsMenuItemLink = page.getByRole('menuitem', { name: 'Noticias' }).getByRo
 }
 
 
+
+async OffersLinkVerify(page) {
+    await this.offersLink.click();
+    await expect(page).toHaveURL("https://croper.com/offers");
+}
+
+async StoresLinkVerify(page) {
+    await this.storesLink.click();
+    await expect(page).toHaveURL("https://croper.com/stores");
+}
+
+async InsurancesLinkVerify(page) {
+    await this.insurancesLink.click();
+    await expect(page).toHaveURL("https://croper.com/stores/145-tuprimero");
+}
+
+async ProductListsLink(page) {
+    await this.productListsLink.click();
+    await expect(page).toHaveURL("https://croper.com/auth/login");
+}
+
+async TechPackagesLink(page) {
+    await this.techPackagesLink.click();
+    await expect(page).toHaveURL("https://croper.com/packages");
+}
+
+async SellLink(page) {
+    await this.sellLink.click();
+    await expect(page).toHaveURL("https://croper.com/auth/login");
+}
+
+async ManagementLink(page) {
+    await this.managementLink.click();
+    await expect(page).toHaveURL("https://croper.com/auth/login");
+}
+
+async NewsMenuItemLink(page) {
+    
+    const page4Promise = page.waitForEvent('popup');
+    await this.newsMenuItemLink.click();
+    const page4 = await page4Promise;
+    await expect(page4).toHaveURL("https://blog.croper.com/");
+}
+
 }
