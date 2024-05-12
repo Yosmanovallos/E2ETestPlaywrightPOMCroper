@@ -7,78 +7,79 @@ const { CategoriesPage } = require("../pages/categoriespage");
 
 test.describe('Headers links verify', () => {
 
+  let homePage;
+
+  test.beforeEach(async ({ page }) => {
+    homePage = new HomePageCroper(page);
+    await homePage.goto();
+  });
+
 test("Offers Link Verify", async ({ page }) => {
-  const homePage = new HomePageCroper(page);
-  const headersLinksPage = new HeaderLinksPage(page);
-  await homePage.goto();
-  await headersLinksPage.OffersLinkVerify(page);
+    const headersLinksPage = new HeaderLinksPage(page);
+    await headersLinksPage.OffersLinkVerify(page);
 });
 
 test("Stores Link Verify", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
     const headersLinksPage = new HeaderLinksPage(page);
-    await homePage.goto();
     await headersLinksPage.StoresLinkVerify(page);
 });
 
 test("Insurances Link Verify", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
     const headersLinksPage = new HeaderLinksPage(page);
-    await homePage.goto();
     await headersLinksPage.InsurancesLinkVerify(page);
 });
 
 test("Product Lists Link", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
+
     const headersLinksPage = new HeaderLinksPage(page);
-    await homePage.goto();
     await headersLinksPage.ProductListsLink(page);
 });
 
 test("Tech Packages Link", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
+
     const headersLinksPage = new HeaderLinksPage(page);
-    await homePage.goto();
     await headersLinksPage.TechPackagesLink(page);
 });
 
 test("Sell Link", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
+
     const headersLinksPage = new HeaderLinksPage(page);
-    await homePage.goto();
     await headersLinksPage.SellLink(page);
 });
 
 test("Management Link", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
+
     const headersLinksPage = new HeaderLinksPage(page);
-    await homePage.goto();
     await headersLinksPage.ManagementLink(page);
 });
 
 test("News Menu Item Link", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
+
     const headersLinksPage = new HeaderLinksPage(page);
-    await homePage.goto();
     await headersLinksPage.NewsMenuItemLink(page);
 });
 
 
 });
 
+
 test.describe('Categories', () => {
 
-    test("Categories Verify", async ({ page }) => {
-      const homePage = new HomePageCroper(page);
-      const categoriesPage = new CategoriesPage(page);
-      await homePage.goto();
+  let homePage;
+
+  test.beforeEach(async ({ page }) => {
+    homePage = new HomePageCroper(page);
+    await homePage.goto();
+  });
+
+
+    test("Categories Verify", async ({ page }) => {  
+      const categoriesPage = new CategoriesPage(page)
       await categoriesPage.CategoriesVerify();
     });
 
-    test("Categories Verify Modals", async ({ page }) => {
-        const homePage = new HomePageCroper(page);
+    test("Categories Verify Modals", async ({ page }) => {   
         const categoriesPage = new CategoriesPage(page);
-        await homePage.goto();
         await categoriesPage.CategoriesCheckModals();
       });
     
@@ -86,26 +87,25 @@ test.describe('Categories', () => {
     
 test.describe('Credits', () => {
 
-    test("Credits Solicite", async ({ page }) => {
-      const homePage = new HomePageCroper(page);
-      const creditsPage = new CreditsPage(page);
-      await homePage.goto();
+  let homePage;
+
+  test.beforeEach(async ({ page }) => {
+    homePage = new HomePageCroper(page);
+    await homePage.goto();
+  });
+
+    test("Credits Solicite", async ({ page }) => {  
+      const creditsPage = new CreditsPage(page)
       await creditsPage.CreditSolicite(page);
     });
 
-    test("My Credits Solicite", async ({ page }) => {
-        const homePage = new HomePageCroper(page);
+    test("My Credits Solicite", async ({ page }) => {      
         const creditsPage = new CreditsPage(page);
-        await homePage.goto();
         await creditsPage.MyCreditsSolicite(page);
-      });
-
-      test("Financial Entities", async ({ page }) => {
-        const homePage = new HomePageCroper(page);
-        const creditsPage = new CreditsPage(page);
-        await homePage.goto();
-        await creditsPage.FinancialEntities(page);
-      });
-
-    
     });
+
+      test("Financial Entities", async ({ page }) => {   
+        const creditsPage = new CreditsPage(page);
+        await creditsPage.FinancialEntities(page);
+    }); 
+});

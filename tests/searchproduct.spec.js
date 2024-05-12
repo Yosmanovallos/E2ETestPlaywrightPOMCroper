@@ -6,22 +6,27 @@ const prodTestData = require('../data/prod.json');
 
 
 test.describe('Search product', () => {
+
+  let homePage;
+
+  test.beforeEach(async ({ page }) => {
+    homePage = new HomePageCroper(page);
+    await homePage.goto();
+  });
+
+
 test("Search Product (filtro de aceite)", async ({ page }) => {
-  const homePage = new HomePageCroper(page);
   const searchPage = new SearchBarPage(page);
   const testData = process.env.ENV === 'qa' ? qaTestData.qaTestData : prodTestData.prodTestData;
-  await homePage.goto();
   await searchPage.searchProduct(testData.productName);
   await searchPage.verifyResultsContainProduct(testData.productName);
 });
 
 test("Search any Product", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
-    const searchPage = new SearchBarPage(page);
-    const testData = process.env.ENV === 'qa' ? qaTestData.qaTestData : prodTestData.prodTestData;
-    await homePage.goto();
-    await searchPage.searchProduct(testData.productName2);
-    await searchPage.verifyResultsContainProducttwo(testData.productName2);
+  const searchPage = new SearchBarPage(page);
+  const testData = process.env.ENV === 'qa' ? qaTestData.qaTestData : prodTestData.prodTestData;
+  await searchPage.searchProduct(testData.productName2);
+  await searchPage.verifyResultsContainProducttwo(testData.productName2);
   });
 
 // test("Search all Product (filtro de aceite)", async ({ page }) => {

@@ -20,7 +20,7 @@ constructor(page){
 
     async AgriSuppliesLink(page) {
         await this.agriSuppliesLink.click();
-        await expect(page).toHaveURL("https://croper.com/products?type=Insumo"); 
+        await expect(page).toHaveURL("https://croper.com/products?type=Insumo");
     }
         
      async FinalProductsLink(page) {

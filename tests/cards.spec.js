@@ -1,56 +1,44 @@
-const { test, expect } = require("@playwright/test");
+const { test } = require("@playwright/test");
 const { HomePageCroper } = require("../pages/homepage");
-const { SearchBarPage } = require("../pages/searchbarpage");
 const { CardsPage } = require("../pages/cardspage");
 
-
 test.describe('Cards', () => {
-test("Card Agri Supplies Link", async ({ page }) => {
-  const homePage = new HomePageCroper(page);
-  const cardsPage = new CardsPage(page);
-  await homePage.goto();
-  await cardsPage.AgriSuppliesLink(page);
 
+    let homePage;
+    let cardsPage;
+  
+    test.beforeEach(async ({ page }) => {
+      homePage = new HomePageCroper(page);
+      await homePage.goto();
+    });
+     
+test("Card Agri Supplies Link", async ({ page }) => {
+    cardsPage = new CardsPage(page);
+    await cardsPage.AgriSuppliesLink(page);
 });
 
 test("Card Final Products Link", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
-    const cardsPage = new CardsPage(page);
-    await homePage.goto();
-    await cardsPage.FinalProductsLink(page);
-  
+    cardsPage = new CardsPage(page);
+    await cardsPage.FinalProductsLink(page);  
 });
 
 test("Card Store Branches Link", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
-    const cardsPage = new CardsPage(page);
-    await homePage.goto();
-    await cardsPage.StoreBranchesLink(page);
-  
-});0
+    cardsPage = new CardsPage(page);
+    await cardsPage.StoreBranchesLink(page);  
+});
 
 test("Card Farm Management Link", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
-    const cardsPage = new CardsPage(page);
-    await homePage.goto();
-    await cardsPage.FarmManagementLink(page);
-  
-});0
+    cardsPage = new CardsPage(page);
+    await cardsPage.FarmManagementLink(page); 
+});
 
 test("Card Credit Lines Link", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
-    const cardsPage = new CardsPage(page);
-    await homePage.goto();
-    await cardsPage.CreditLinesLink(page);
-  
-});0
+    cardsPage = new CardsPage(page);
+    await cardsPage.CreditLinesLink(page); 
+});
 
 test("Card Discount Offers Link", async ({ page }) => {
-    const homePage = new HomePageCroper(page);
-    const cardsPage = new CardsPage(page);
-    await homePage.goto();
+    cardsPage = new CardsPage(page);
     await cardsPage.DiscountOffersLink(page);
-  
-});0
-  
+});  
 });
