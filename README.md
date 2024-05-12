@@ -57,67 +57,42 @@ report generate 100 % coverage
 allure-results/:
 
 Directorio donde se almacenan los resultados de las pruebas generados por Allure.
+
+
 data/:
 
 prod.json:
 Datos de prueba específicos para el entorno de producción.
 qa.json:
 Datos de prueba específicos para el entorno de calidad.
-Hooks/:
 
-hooks.js:
-Archivo que define los métodos auxiliares para las pruebas, como la verificación de respuestas y resultados de búsqueda.
-node_modules/:
 
-Contiene las dependencias instaladas del proyecto.
+Hooks/: 
+
+hooks.js:Archivo que define los métodos auxiliares para las pruebas, como la verificación de respuestas y resultados de búsqueda.
+
 pages/:
 
-cardspage.js:
-Clase que define métodos para interactuar con los enlaces de las tarjetas en la página principal.
-categoriespage.js:
-Clase que define métodos para verificar y probar categorías de productos y sus respectivos modales.
-creditspage.js:
-Clase que define métodos para interactuar con el menú de créditos y sus enlaces.
-headerslinkspage.js:
-Clase que define métodos para interactuar con los enlaces del encabezado principal.
-homepage.js:
-Clase que define métodos para la página principal de Croper.
-searchbarpage.js:
-Clase que define métodos para realizar búsquedas de productos utilizando la barra de búsqueda.
-playwright-report/:
+- cardspage.js: Clase que define métodos para interactuar con los enlaces de las tarjetas en la página principal.
+- categoriespage.js: Clase que define métodos para verificar y probar categorías de productos y sus respectivos modales.
+- creditspage.js: Clase que define métodos para interactuar con el menú de créditos y sus enlaces.
+- headerslinkspage.js: Clase que define métodos para interactuar con los enlaces del encabezado principal.
+- homepage.js: Clase que define métodos para la página principal de Croper.
+- searchbarpage.js: Clase que define métodos para realizar búsquedas de productos utilizando la barra de búsqueda.
 
-data/:
-Subdirectorio que contiene los datos de los reportes.
-index.html:
-Archivo HTML con el índice del reporte.
-test-results/:
+- data/: Subdirectorio que contiene los datos de los reportes.
+- index.html: Archivo HTML con el índice del reporte.
+- test-results/: Directorio que contiene los resultados específicos de las pruebas.
 
-Directorio que contiene los resultados específicos de las pruebas.
 tests/:
 
-cards.spec.js:
-Pruebas para verificar los enlaces de las tarjetas en la página principal.
-homepageverify.spec.js:
-Prueba para verificar la visibilidad de elementos en la página principal.
-searchproduct.spec.js:
-Pruebas para verificar la funcionalidad de búsqueda de productos.
-verifyheaderslinks.spec.js:
-Pruebas para verificar los enlaces del encabezado principal.
-.env:
+- cards.spec.js: Pruebas para verificar los enlaces de las tarjetas en la página principal.
+- homepageverify.spec.js: Prueba para verificar la visibilidad de elementos en la página principal.
+- searchproduct.spec.js: Pruebas para verificar la funcionalidad de búsqueda de productos.
+- verifyheaderslinks.spec.js: Pruebas para verificar los enlaces del encabezado principal.
+- .env: Archivo de configuración de variables de entorno.
 
-Archivo de configuración de variables de entorno.
-.gitignore:
-
-Archivos y directorios que Git debe ignorar.
-package-lock.json:
-
-Archivo que asegura instalaciones reproducibles, bloqueando las versiones de las dependencias.
-package.json:
-
-Contiene información del proyecto y las dependencias.
-playwright.config.js:
-
-Configuración global para las pruebas con Playwright.
+playwright.config.js: Configuración global para las pruebas con Playwright.
 
 
 ## bug-reporting
