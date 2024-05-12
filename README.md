@@ -61,10 +61,8 @@ Directorio donde se almacenan los resultados de las pruebas generados por Allure
 
 data/:
 
-prod.json:
-Datos de prueba específicos para el entorno de producción.
-qa.json:
-Datos de prueba específicos para el entorno de calidad.
+- prod.json: Datos de prueba específicos para el entorno de producción.
+- qa.json: Datos de prueba específicos para el entorno de calidad.
 
 
 Hooks/: 
@@ -90,9 +88,11 @@ tests/:
 - homepageverify.spec.js: Prueba para verificar la visibilidad de elementos en la página principal.
 - searchproduct.spec.js: Pruebas para verificar la funcionalidad de búsqueda de productos.
 - verifyheaderslinks.spec.js: Pruebas para verificar los enlaces del encabezado principal.
-- .env: Archivo de configuración de variables de entorno.
 
-playwright.config.js: Configuración global para las pruebas con Playwright.
+Config/:
+
+- .env: Archivo de configuración de variables de entorno.
+- playwright.config.js: Configuración global para las pruebas con Playwright.
 
 
 ## bug-reporting
