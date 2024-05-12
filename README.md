@@ -4,6 +4,7 @@
 This project utilizes Playwright in conjunction with POM, JavaScript, Allure to automate tests related to the challenge . It includes functionalities like verification of products, Api, petitions, URL verification, links verification, manual testing and bug reporting.
 
 ## Table of Contents
+- !!Video DEMO!! = https://youtu.be/Bv1IWI39FaU
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
