@@ -17,6 +17,7 @@ test("Card Agri Supplies Link", async ({ page }) => {
     await cardsPage.AgriSuppliesLink(page);
 });
 
+
 test("Card Final Products Link", async ({ page }) => {
     cardsPage = new CardsPage(page);
     await cardsPage.FinalProductsLink(page);  

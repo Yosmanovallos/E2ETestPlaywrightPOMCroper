@@ -72,7 +72,6 @@ test.describe('Categories', () => {
     await homePage.goto();
   });
 
-
     test("Categories Verify", async ({ page }) => {  
       const categoriesPage = new CategoriesPage(page)
       await categoriesPage.CategoriesVerify();
