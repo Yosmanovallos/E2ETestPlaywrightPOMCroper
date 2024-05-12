@@ -3,6 +3,7 @@ const { test, expect } = require('@playwright/test')
 const qaTestData = require('../data/qa.json');
 const prodTestData = require('../data/prod.json');
 const { HeaderLinksPage } = require("../pages/headerslinkspage");
+const{CardsPage} = require("../pages/cardspage");
 // create class
 exports.HomePageCroper = class HomePageCroper {
 
@@ -19,12 +20,6 @@ exports.HomePageCroper = class HomePageCroper {
         this.cartLink = page.getByRole('link', { name: 'Carrito' });
         this.registerBannerLink = page.getByRole('banner').getByRole('link', { name: 'Registrarse' });
         this.loginBannerLink = page.getByRole('banner').getByRole('link', { name: 'Iniciar sesión' });
-        this.agriSuppliesLink = page.getByRole('link', { name: 'Insumos agrícolas Cotiza y' });
-        this.finalProductsLink = page.getByRole('link', { name: 'Productos finales Encuentra' });
-        this.storeBranchesLink = page.getByRole('link', { name: 'Tiendas Conoce las sucursales' });
-        this.farmManagementLink = page.getByRole('link', { name: 'Gestión de fincas Administra' });
-        this.creditLinesLink = page.getByRole('link', { name: 'Crédito Líneas hechas a la' });
-        this.discountOffersLink = page.getByRole('link', { name: 'Oferta Conoce los descuentos' });
         this.nextProductSlideLabel = page.locator('cp-product-slide').getByLabel('Next');
         this.homeSection = page.locator('cp-home');
         this.faqLink = page.getByRole('link', { name: 'Preguntas frecuentes' });
@@ -40,6 +35,7 @@ exports.HomePageCroper = class HomePageCroper {
         this.searchButton = page.getByRole('button', { name: 'Busca lo que necesitas' });
         this.testData = process.env.ENV === 'qa' ? qaTestData.qaTestData : prodTestData.prodTestData;
         this.headersLinksPage = new HeaderLinksPage(page);
+        this.cardsPage = new CardsPage(page);
     }
 
     async goto(){
@@ -63,12 +59,12 @@ exports.HomePageCroper = class HomePageCroper {
         await expect(this.cartLink).toBeVisible();
         await expect(this.registerBannerLink).toBeVisible();
         await expect(this.loginBannerLink).toBeVisible();
-        await expect(this.agriSuppliesLink).toBeVisible();
-        await expect(this.finalProductsLink).toBeVisible();
-        await expect(this.storeBranchesLink).toBeVisible();
-        await expect(this.farmManagementLink).toBeVisible();
-        await expect(this.creditLinesLink).toBeVisible();
-        await expect(this.discountOffersLink).toBeVisible();
+        await expect(this.cardsPage.agriSuppliesLink).toBeVisible();
+        await expect(this.cardsPage.finalProductsLink).toBeVisible();
+        await expect(this.cardsPage.storeBranchesLink).toBeVisible();
+        await expect(this.cardsPage.farmManagementLink).toBeVisible();
+        await expect(this.cardsPage.creditLinesLink).toBeVisible();
+        await expect(this.cardsPage.discountOffersLink).toBeVisible();
         await expect(this.nextProductSlideLabel).toBeVisible();
         await expect(this.homeSection).toContainText('Encuentra en Croper');
         await expect(this.homeSection).toContainText('Categorías de Insumos agrícolas');

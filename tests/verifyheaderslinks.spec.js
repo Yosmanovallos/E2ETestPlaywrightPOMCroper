@@ -1,6 +1,7 @@
 const { test, expect } = require("@playwright/test");
 const { HomePageCroper } = require("../pages/homepage");
 const { HeaderLinksPage } = require("../pages/headerslinkspage");
+const { CreditsPage } = require("../pages/creditspage");
 const { CategoriesPage } = require("../pages/categoriespage");
 
 
@@ -80,5 +81,31 @@ test.describe('Categories', () => {
         await homePage.goto();
         await categoriesPage.CategoriesCheckModals();
       });
+    
+    });
+    
+test.describe('Credits', () => {
+
+    test("Credits Solicite", async ({ page }) => {
+      const homePage = new HomePageCroper(page);
+      const creditsPage = new CreditsPage(page);
+      await homePage.goto();
+      await creditsPage.CreditSolicite(page);
+    });
+
+    test("My Credits Solicite", async ({ page }) => {
+        const homePage = new HomePageCroper(page);
+        const creditsPage = new CreditsPage(page);
+        await homePage.goto();
+        await creditsPage.MyCreditsSolicite(page);
+      });
+
+      test("Financial Entities", async ({ page }) => {
+        const homePage = new HomePageCroper(page);
+        const creditsPage = new CreditsPage(page);
+        await homePage.goto();
+        await creditsPage.FinancialEntities(page);
+      });
+
     
     });

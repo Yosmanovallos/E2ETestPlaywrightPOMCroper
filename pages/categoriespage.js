@@ -1,6 +1,4 @@
 const { test, expect } = require('@playwright/test')
-const qaTestData = require('../data/qa.json');
-const prodTestData = require('../data/prod.json');
 const { HeaderLinksPage } = require("../pages/headerslinkspage");
 // create class
 exports.CategoriesPage = class CategoriesPage {
